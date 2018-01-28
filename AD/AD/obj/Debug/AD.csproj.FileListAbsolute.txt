@@ -1,0 +1,7 @@
+C:\Users\Piotr\Desktop\AD\AD\bin\Debug\AD.exe.config
+C:\Users\Piotr\Desktop\AD\AD\bin\Debug\AD.exe
+C:\Users\Piotr\Desktop\AD\AD\bin\Debug\AD.pdb
+C:\Users\Piotr\Desktop\AD\AD\obj\Debug\AD.csprojResolveAssemblyReference.cache
+C:\Users\Piotr\Desktop\AD\AD\obj\Debug\AD.csproj.CoreCompileInputs.cache
+C:\Users\Piotr\Desktop\AD\AD\obj\Debug\AD.exe
+C:\Users\Piotr\Desktop\AD\AD\obj\Debug\AD.pdb
