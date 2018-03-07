@@ -1,0 +1,10 @@
+C:\Users\praktyka\Desktop\AD\AD\rob\bin\Debug\rob.exe.config
+C:\Users\praktyka\Desktop\AD\AD\rob\bin\Debug\rob.exe
+C:\Users\praktyka\Desktop\AD\AD\rob\bin\Debug\rob.pdb
+C:\Users\praktyka\Desktop\AD\AD\rob\obj\Debug\rob.csprojResolveAssemblyReference.cache
+C:\Users\praktyka\Desktop\AD\AD\rob\obj\Debug\rob.Form1.resources
+C:\Users\praktyka\Desktop\AD\AD\rob\obj\Debug\rob.Properties.Resources.resources
+C:\Users\praktyka\Desktop\AD\AD\rob\obj\Debug\rob.csproj.GenerateResource.Cache
+C:\Users\praktyka\Desktop\AD\AD\rob\obj\Debug\rob.csproj.CoreCompileInputs.cache
+C:\Users\praktyka\Desktop\AD\AD\rob\obj\Debug\rob.exe
+C:\Users\praktyka\Desktop\AD\AD\rob\obj\Debug\rob.pdb

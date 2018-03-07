@@ -7,9 +7,13 @@ using System.DirectoryServices.ActiveDirectory;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Security.AccessControl;
+using System.Security.Permissions;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace AD
 {
@@ -17,12 +21,47 @@ namespace AD
     {
         static void Main(string[] args)
         {
-            dod();
+//            ExportToFile("C:\\Users");
+//            dod();
 //            GetAllData();
 //             GetListOfServers();
             //Rename();
 //            EnumerateDomainsa();
 //            EnumerateOU("OU=Administracja,OU=Computers,OU=Poland,OU=ProLicht,DC=Prolicht,DC=local");
+
+        }
+
+        public static void ExportToFile(string filename)
+        {
+            string path = @"C:\Users\praktyka\Desktop\AD";
+            string NtAccountName = @"Prolicht\praktyka";
+
+            DirectoryInfo di = new DirectoryInfo(path);
+            DirectorySecurity acl = di.GetAccessControl(AccessControlSections.All);
+            AuthorizationRuleCollection rules = acl.GetAccessRules(true, true, typeof(NTAccount));
+
+            //Go through the rules returned from the DirectorySecurity
+            foreach (AuthorizationRule rule in rules)
+            {
+                //If we find one that matches the identity we are looking for
+                if (rule.IdentityReference.Value.Equals(NtAccountName, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    var filesystemAccessRule = (FileSystemAccessRule)rule;
+
+                    //Cast to a FileSystemAccessRule to check for access rights
+                    if ((filesystemAccessRule.FileSystemRights & FileSystemRights.WriteData) > 0 && filesystemAccessRule.AccessControlType != AccessControlType.Deny)
+                    {
+                        Console.WriteLine(string.Format("{0} has write access to {1}", NtAccountName, path));
+                    }
+                    else
+                    {
+                        Console.WriteLine(string.Format("{0} does not have write access to {1}", NtAccountName, path));
+                    }
+                }
+            }
+
+            Console.ReadLine();
+
         }
 
         public static void dod()
