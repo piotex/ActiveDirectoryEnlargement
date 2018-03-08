@@ -1,46 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace ConsoleApp1
+namespace ProlichtAD.Code
 {
-    class Program
+    public class CodeFactory
     {
-        static void Main(string[] args)
+        public static string strFolderPath = @"";
+
+        public static List<User> GetUserList(EFiltration filtration)
         {
-            string strFolderPath = @"C:\syf";
+            return FiltrationDictionary[filtration];
+        }
 
+        private static Dictionary<EFiltration,List<User>> FiltrationDictionary = new Dictionary<EFiltration, List<User>>
+        {
+            {EFiltration.FoldersFromUser, GetFolders()},
+            {EFiltration.UsersFromPath, GetUsers()}
+        };
+
+        private static List<User> GetFolders()
+        {
+            return null;
+        }
+        private static List<User> GetUsers()
+        {
+            List<User> list = new List<User>();
             DirectoryInfo dirInfo = null;
-
             DirectorySecurity dirSec = null;
-
-            int i = 0;
-
             try
             {
-                // Read the path to the directory
                 do
                 {
                     Console.Write("Enter existing directory > ");
-                    //strFolderPath = Console.ReadLine();
 
                 } while (!Directory.Exists(strFolderPath));
-                // Get the ACL of the directory
+
+
                 dirInfo = new DirectoryInfo(strFolderPath);
                 dirSec = dirInfo.GetAccessControl();
-                // Show the ACEs of the ACL
-                i = 0;
 
-                Console.WriteLine(strFolderPath+"\n\r");
+                Console.WriteLine(strFolderPath + "\n\r");
                 foreach (FileSystemAccessRule rule in dirSec.GetAccessRules(true, true, typeof(NTAccount)))
                 {
-                    Console.WriteLine("[{0}] - Rule {1} {2} access to {3}", 
-                        i++,
+                    Console.WriteLine("[{0}] - Rule {1} {2} access to {3}",
                         rule.AccessControlType == AccessControlType.Allow ? "grants" : "denies",
                         rule.FileSystemRights,
                         rule.IdentityReference.ToString());
@@ -53,11 +59,7 @@ namespace ConsoleApp1
                 Console.WriteLine(ex.Message);
             }
 
-            Console.WriteLine("\n<> ");
-
-            Console.Read();
-
+            return list;
         }
-
     }
 }

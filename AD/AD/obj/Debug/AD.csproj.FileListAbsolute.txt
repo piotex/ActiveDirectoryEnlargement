@@ -11,3 +11,4 @@ C:\Users\praktyka\Desktop\AD\AD\AD\bin\Debug\AD.pdb
 C:\Users\praktyka\Desktop\AD\AD\AD\obj\Debug\AD.csproj.CoreCompileInputs.cache
 C:\Users\praktyka\Desktop\AD\AD\AD\obj\Debug\AD.exe
 C:\Users\praktyka\Desktop\AD\AD\AD\obj\Debug\AD.pdb
+C:\Users\praktyka\Desktop\AD\AD\AD\obj\Debug\AD.csprojResolveAssemblyReference.cache

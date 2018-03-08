@@ -21,6 +21,7 @@ namespace AD
     {
         static void Main(string[] args)
         {
+            dod2();
 //            ExportToFile("C:\\Users");
 //            dod();
 //            GetAllData();
@@ -29,6 +30,49 @@ namespace AD
 //            EnumerateDomainsa();
 //            EnumerateOU("OU=Administracja,OU=Computers,OU=Poland,OU=ProLicht,DC=Prolicht,DC=local");
 
+        }
+
+        public static void dod2()
+        {
+            System.DirectoryServices.DirectoryEntry entry =
+                new System.DirectoryServices.DirectoryEntry(
+                    @"LDAP://CN=praktyka,OU=IT,OU=Users,OU=Poland,OU=Prolicht,DC=Prolicht,DC=local");
+            entry.Username = "praktyka";
+            entry.Password = "Qwerty123";
+
+            System.DirectoryServices.DirectorySearcher mySearcher =
+                new System.DirectoryServices.DirectorySearcher(entry);
+
+            mySearcher.SearchScope = SearchScope.Subtree;
+
+
+            mySearcher.Filter = "(ObjectClass=user)";
+            List<string> lista = new List<string>();
+            DirectorySecurity ds = Directory.GetAccessControl(@"C:\syf");
+            AuthorizationRuleCollection
+                arc = ds.GetAccessRules(true, true, typeof(System.Security.Principal.NTAccount));
+            foreach (FileSystemAccessRule fsar in arc)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Identity : " + fsar.IdentityReference.Value);
+
+
+                sb.AppendLine("FileSystemRights : " + fsar.FileSystemRights + fsar.PropagationFlags);
+
+
+                Console.WriteLine(sb.ToString());
+            }
+
+            var a = mySearcher.FindAll();
+                var aa = mySearcher.AttributeScopeQuery;
+                var aaa = mySearcher.SearchRoot;
+//            var aaaa = mySearcher.Container.Components;
+
+                foreach (SearchResult result in mySearcher.FindAll())
+                {
+                    lista.Add(">" + result.Properties["CN"][0] + "   _____   " + result.Path);
+                    Console.WriteLine(">" + result.Properties["CN"][0] + "   _____   " + result.Path);
+                }
         }
 
         public static void ExportToFile(string filename)
