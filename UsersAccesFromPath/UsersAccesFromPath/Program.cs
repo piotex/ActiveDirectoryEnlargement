@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProlichtAD
+namespace UsersAccesFromPath
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace ProlichtAD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UsersForm());
+            Application.Run(new Form1());
         }
     }
 }

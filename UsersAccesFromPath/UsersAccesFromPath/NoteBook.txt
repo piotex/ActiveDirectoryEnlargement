@@ -1,0 +1,4 @@
+﻿
+
+
+1) sprawdz czy jakis urzytkowniek ma allow folse w starym kodzie odmowa to => granies

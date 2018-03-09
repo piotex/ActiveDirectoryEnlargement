@@ -15,6 +15,20 @@ namespace ProlichtAD
         public UsersForm()
         {
             InitializeComponent();
+            for (int i = 0; i < 1000; i++)
+            {
+                textBox1.Text += i.ToString() + "\r\n";
+            }
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            ScrollBar a = vScrollBar1;
+            if (a.Value > 0)
+            {
+                textBox1.SelectionStart = 10;
+                textBox1.ScrollToCaret();
+            }
         }
     }
 }

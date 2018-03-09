@@ -13,7 +13,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string strFolderPath = @"C:\syf";
+            string strFolderPath = @"C:\Users\Piotr\Desktop\syff\Debug";
 
             DirectoryInfo dirInfo = null;
 
